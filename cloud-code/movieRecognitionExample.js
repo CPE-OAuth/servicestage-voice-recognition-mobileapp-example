@@ -6,7 +6,7 @@ Parse.Config.get().then(function(config) {
     const username = config.get("iam_userName");
     const password = config.get("iam_password");
     const domainname = config.get("iam_domainName");
-
+    const movieDBAPIKey  = config.get("movieDBApiKey");
     //Get the valid token from the huawei public cloud
     var reqToken = require('request');
     var token;
@@ -74,7 +74,7 @@ Parse.Config.get().then(function(config) {
                             //Call the movie API
                             var reqMovie = require('request');
                             reqMovie({
-                                url: 'http://v.juhe.cn/movie/index?key=1b7416d6a4f386849df8146110cdc9bb&title='+encodeURIComponent(resultData),
+                                url: 'http://v.juhe.cn/movie/index?key=' + movieDBAPIKey + '&title='+encodeURIComponent(resultData),
                                 method: "GET",
                                 "rejectUnauthorized": false,
                                 json: true
