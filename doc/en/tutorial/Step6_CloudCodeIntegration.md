@@ -16,7 +16,10 @@ To get the authentication token we should provide valid **username**, **password
 
 1) Open the mbaas console(http://{mbaas-host}:{port}) and click the configuration tab.
  ![Alt text](./imgs/config1.png?raw=true "config")
-2) Add the configuration parameters like **username**, **password** and **domain name**.
+2) Add the configuration parameters like **username**, **password**, **domain name** and **movie DB Api Key**.
+    
+   Note: Register at https://www.juhe.cn/ to get the movie db api key. This key is used to query the movies details.
+   
  ![Alt text](./imgs/config2.png?raw=true "config")
  ![Alt text](./imgs/config3.png?raw=true "config")
  
@@ -27,6 +30,7 @@ To get the authentication token we should provide valid **username**, **password
         const username = config.get("userName");
         const password = config.get("password");
         const domainname = config.get("domainName");
+        const movieDBAPIKey  = config.get("movieDBApiKey");
     }, function(error) {
         res.error(error);
     });
